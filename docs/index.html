@@ -7,103 +7,267 @@
 <style>
   * { box-sizing: border-box; }
   body {
-    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f6f7f9; color: #111827;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+    background: #f5f7fa;
+    color: #111827;
   }
-  .wrap { max-width: 1050px; margin: 0 auto; padding: 18px; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 18px; }
   .hero {
-    background: #111827; color: white; border-radius: 18px; padding: 22px;
-    margin-bottom: 16px;
+    background: #111827; color: white; border-radius: 20px; padding: 22px; margin-bottom: 14px;
   }
+  .hero-top { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
   .badge {
-    display:inline-block; padding:6px 12px; border-radius:999px;
-    background:#16a34a; color:white; font-weight:700;
+    display:inline-block; padding:5px 10px; border-radius:999px; font-size:12px; font-weight:750;
   }
-  .muted { color:#6b7280; font-size:13px; }
-  .hero .muted { color:#cbd5e1; }
-  h1 { font-size:24px; margin:8px 0 6px; }
-  h2 { font-size:18px; margin:22px 0 10px; }
-  .grid {
-    display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+  h1 { font-size:25px; margin:4px 0 8px; }
+  h2 { font-size:18px; margin:24px 0 10px; }
+  .hero-line { font-size:16px; line-height:1.55; }
+  .hero-small { color:#cbd5e1; font-size:13px; margin-top:8px; }
+  .top-grid { display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:10px; }
+  .panel, .metric-card {
+    background:white; border:1px solid #e5e7eb; border-radius:16px; padding:16px;
   }
-  .card {
-    background:white; border:1px solid #e5e7eb; border-radius:14px; padding:15px;
+  .panel-title { font-size:13px; color:#6b7280; margin-bottom:7px; }
+  .big { font-size:28px; font-weight:800; }
+  .small { font-size:13px; color:#4b5563; line-height:1.5; }
+  .summary {
+    background:white; border:1px solid #e5e7eb; border-radius:16px; padding:16px 18px;
   }
-  .value { font-size:25px; font-weight:750; margin:7px 0 4px; }
-  .sub { font-size:13px; color:#4b5563; }
+  .summary ul { margin:0; padding-left:20px; }
+  .summary li { margin:8px 0; line-height:1.45; }
+  .metrics { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .metric-head { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+  .metric-title { font-size:14px; font-weight:750; }
+  .fresh { font-size:11px; color:#9ca3af; margin-top:3px; }
+  .metric-value { font-size:28px; font-weight:800; margin:12px 0 8px; }
+  .changes { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:12px; }
+  .changes span {
+    background:#f3f4f6; padding:4px 7px; border-radius:7px; font-size:12px; color:#374151;
+  }
+  .meaning, .interpret {
+    font-size:13px; line-height:1.5; padding-top:9px; border-top:1px solid #f1f5f9;
+  }
+  .meaning { color:#6b7280; }
+  .interpret { color:#1f2937; margin-top:7px; }
   .riskgrid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .score { font-size:34px; font-weight:800; }
-  ul { margin:8px 0 0 18px; padding:0; }
-  li { margin:5px 0; }
-  .note {
-    background:#fff; border-left:4px solid #9ca3af; padding:12px 14px;
-    margin-top:10px; font-size:13px; color:#4b5563;
-  }
-  table {
-    width:100%; border-collapse:collapse; background:white; border-radius:14px; overflow:hidden;
-  }
-  th,td { text-align:left; border-bottom:1px solid #e5e7eb; padding:10px; font-size:13px; }
+  .score { font-size:34px; font-weight:850; }
+  .riskgrid ul { margin:8px 0 0 18px; padding:0; }
+  .riskgrid li { margin:5px 0; }
+  .legend { display:flex; flex-wrap:wrap; gap:8px; }
+  .legend-item { background:white; border:1px solid #e5e7eb; border-radius:12px; padding:10px 12px; font-size:12px; }
+  table { width:100%; border-collapse:collapse; background:white; border-radius:14px; overflow:hidden; }
+  th, td { text-align:left; border-bottom:1px solid #e5e7eb; padding:10px; font-size:13px; }
   th { background:#f9fafb; }
+  .note { background:white; border-left:4px solid #9ca3af; padding:12px 14px; margin-top:10px; font-size:12px; color:#4b5563; line-height:1.5; }
   a { color:#2563eb; }
-  @media (max-width:720px) {
-    .grid { grid-template-columns:1fr 1fr; }
+  @media (max-width:760px) {
+    .top-grid { grid-template-columns:1fr; }
+    .metrics { grid-template-columns:1fr; }
     .riskgrid { grid-template-columns:1fr; }
-  }
-  @media (max-width:430px) {
-    .grid { grid-template-columns:1fr; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <section class="hero">
-    <span class="badge">공격</span>
+    <div class="hero-top">
+      <span class="badge" style="color:#1d4ed8;background:#dbeafe">오늘 상태 관찰</span>
+      <span class="badge" style="color:#166534;background:#dcfce7">운용 레짐 공격</span>
+      <span class="badge" style="color:#111827;background:#e5e7eb">전 관측 → 유사</span>
+    </div>
     <h1>AI Cycle Risk Dashboard</h1>
-    <div>상승 추세 추종 · 현재는 <b>혼합/중립</b> 위험축이 상대적으로 더 강함</div>
-    <div class="muted" style="margin-top:8px">FRED 최신 관측 기준일: 2026-08-14</div>
+    <div class="hero-line"><b>상승 추세 추종</b> · 현재 상대적으로 혼합/중립 위험축을 더 주시합니다.</div>
+    <div class="hero-small">최신 데이터 기준일은 지표별로 다를 수 있습니다. 카드마다 데이터 날짜를 표시합니다.</div>
   </section>
 
-  <div class="grid">
-        <div class="card">
-          <div class="muted">2Y Treasury</div>
-          <div class="value">4.17%</div>
-          <div class="sub">5D -2bp · 20D -1bp</div>
+  <div class="top-grid">
+    <div class="panel">
+      <div class="panel-title">전 관측 대비</div>
+      <div class="big">→ 유사</div>
+      <div class="small">전 관측 대비 큰 방향 변화는 없습니다.</div>
+      <div class="small" style="margin-top:6px">주요 변화: 10Y 상승</div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">1987형 Long-end Risk</div>
+      <div class="big">0/100</div>
+      <div class="small">장기금리 · 실질금리 · term premium · 신용의 조합을 봅니다.</div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">1999형 Front-end Risk</div>
+      <div class="big">0/100</div>
+      <div class="small">2Y 급등 · 커브 평탄화/역전 · 신용 악화를 봅니다.</div>
+    </div>
+  </div>
+
+  <h2>오늘 한눈에</h2>
+  <div class="summary"><ul><li>커브: 2s10s +51bp, 5D +5bp → 현재는 역전보다 스티프닝 쪽입니다.</li><li>롱엔드: 30Y 5.25%, 20D +19bp → 5.75% 절대 경계선 아래지만 장기금리 상승속도를 계속 봅니다.</li><li>신용: IG 80bp / HY 267bp → 현재는 IG 100bp / HY 350bp 경고선 아래입니다.</li></ul></div>
+
+  <h2>핵심 지표 — 숫자 + 의미 + 상태</h2>
+  <div class="metrics">
+        <div class="metric-card">
+          <div class="metric-head">
+            <div>
+              <div class="metric-title">2Y Treasury</div>
+              <div class="fresh">데이터 2026-08-14 · 3일 지연</div>
+            </div>
+            <span class="badge" style="color:#166534;background:#dcfce7">안정</span>
+          </div>
+          <div class="metric-value">4.17%</div>
+          <div class="changes">
+            <span>전 관측 +2bp</span>
+            <span>5D -2bp</span>
+            <span>20D -1bp</span>
+          </div>
+          <div class="meaning"><b>의미</b> 연준의 향후 정책금리 경로를 민감하게 반영합니다. 빠른 상승은 1999형 긴축 재가격 신호입니다.</div>
+          <div class="interpret"><b>현재 해석</b> 2년물에서 급격한 긴축 재가격 신호는 아직 없습니다.</div>
         </div>
-        <div class="card">
-          <div class="muted">2s10s</div>
-          <div class="value">+51bp</div>
-          <div class="sub">5D +5bp · 20D +14bp</div>
+        
+        <div class="metric-card">
+          <div class="metric-head">
+            <div>
+              <div class="metric-title">2s10s Curve</div>
+              <div class="fresh"></div>
+            </div>
+            <span class="badge" style="color:#166534;background:#dcfce7">안정</span>
+          </div>
+          <div class="metric-value">+51bp</div>
+          <div class="changes">
+            <span>전 관측 +3bp</span>
+            <span>5D +5bp</span>
+            <span>20D +14bp</span>
+          </div>
+          <div class="meaning"><b>의미</b> 2년물과 10년물의 금리차입니다. 빠른 평탄화나 역전은 경기·긴축 스트레스가 커지고 있다는 뜻입니다.</div>
+          <div class="interpret"><b>현재 해석</b> 현재 역전은 아니며 최근 흐름은 스티프닝입니다.</div>
         </div>
-        <div class="card">
-          <div class="muted">30Y Treasury</div>
-          <div class="value">5.25%</div>
-          <div class="sub">20D +19bp</div>
+        
+        <div class="metric-card">
+          <div class="metric-head">
+            <div>
+              <div class="metric-title">10Y Treasury</div>
+              <div class="fresh">데이터 2026-08-14 · 3일 지연</div>
+            </div>
+            <span class="badge" style="color:#166534;background:#dcfce7">안정</span>
+          </div>
+          <div class="metric-value">4.68%</div>
+          <div class="changes">
+            <span>전 관측 +5bp</span>
+            <span>5D +3bp</span>
+            <span>20D +13bp</span>
+          </div>
+          <div class="meaning"><b>의미</b> 미국 금융시장의 대표 장기 할인율입니다. 급등하면 성장주와 장기자산의 밸류에이션 부담이 커집니다.</div>
+          <div class="interpret"><b>현재 해석</b> 10년물은 핵심 경계선 아래이며 상승속도도 아직 극단적이지 않습니다.</div>
         </div>
-        <div class="card">
-          <div class="muted">10Y Real Yield</div>
-          <div class="value">2.41%</div>
-          <div class="sub">20D +10bp</div>
+        
+        <div class="metric-card">
+          <div class="metric-head">
+            <div>
+              <div class="metric-title">30Y Treasury</div>
+              <div class="fresh">데이터 2026-08-14 · 3일 지연</div>
+            </div>
+            <span class="badge" style="color:#1d4ed8;background:#dbeafe">관찰</span>
+          </div>
+          <div class="metric-value">5.25%</div>
+          <div class="changes">
+            <span>전 관측 +4bp</span>
+            <span>5D +6bp</span>
+            <span>20D +19bp</span>
+          </div>
+          <div class="meaning"><b>의미</b> 재정·수급·장기 인플레이션 불확실성에 민감합니다. 1987형 장기금리 충격을 볼 때 핵심 지표입니다.</div>
+          <div class="interpret"><b>현재 해석</b> 30년물이 높은 수준입니다. 5.50~5.75% 접근 여부를 봅니다.</div>
         </div>
-        <div class="card">
-          <div class="muted">IG OAS</div>
-          <div class="value">80bp</div>
-          <div class="sub">20D +1bp</div>
+        
+        <div class="metric-card">
+          <div class="metric-head">
+            <div>
+              <div class="metric-title">10Y Real Yield</div>
+              <div class="fresh">데이터 2026-08-14 · 3일 지연</div>
+            </div>
+            <span class="badge" style="color:#1d4ed8;background:#dbeafe">관찰</span>
+          </div>
+          <div class="metric-value">2.41%</div>
+          <div class="changes">
+            <span>전 관측 +2bp</span>
+            <span>5D +1bp</span>
+            <span>20D +10bp</span>
+          </div>
+          <div class="meaning"><b>의미</b> 인플레이션 기대를 제외한 실질 할인율입니다. 상승할수록 주식·금·부동산 등 위험자산의 부담이 커집니다.</div>
+          <div class="interpret"><b>현재 해석</b> 실질금리가 완만하게 상승하고 있습니다.</div>
         </div>
-        <div class="card">
-          <div class="muted">HY OAS</div>
-          <div class="value">267bp</div>
-          <div class="sub">20D -6bp</div>
-        </div></div>
+        
+        <div class="metric-card">
+          <div class="metric-head">
+            <div>
+              <div class="metric-title">10Y Term Premium</div>
+              <div class="fresh">데이터 2026-08-07 · 지연 주의(10일)</div>
+            </div>
+            <span class="badge" style="color:#166534;background:#dcfce7">안정</span>
+          </div>
+          <div class="metric-value">0.83%</div>
+          <div class="changes">
+            <span>전 관측 -1bp</span>
+            <span>5D -4bp</span>
+            <span>20D +5bp</span>
+          </div>
+          <div class="meaning"><b>의미</b> 장기채를 보유하는 위험에 대해 시장이 요구하는 추가 보상입니다. 상승하면 장기금리의 '위험 프리미엄' 성격이 강해집니다.</div>
+          <div class="interpret"><b>현재 해석</b> term premium 급등 신호는 아직 없습니다.</div>
+        </div>
+        
+        <div class="metric-card">
+          <div class="metric-head">
+            <div>
+              <div class="metric-title">IG OAS</div>
+              <div class="fresh">데이터 2026-08-14 · 3일 지연</div>
+            </div>
+            <span class="badge" style="color:#166534;background:#dcfce7">안정</span>
+          </div>
+          <div class="metric-value">80bp</div>
+          <div class="changes">
+            <span>전 관측 +1bp</span>
+            <span>5D +2bp</span>
+            <span>20D +1bp</span>
+          </div>
+          <div class="meaning"><b>의미</b> 우량 회사채의 국채 대비 추가 금리입니다. 확대되면 자본공급자의 위험회피가 커지고 있다는 뜻입니다.</div>
+          <div class="interpret"><b>현재 해석</b> IG 신용스프레드는 현재 경고선 아래입니다.</div>
+        </div>
+        
+        <div class="metric-card">
+          <div class="metric-head">
+            <div>
+              <div class="metric-title">HY OAS</div>
+              <div class="fresh">데이터 2026-08-14 · 3일 지연</div>
+            </div>
+            <span class="badge" style="color:#166534;background:#dcfce7">안정</span>
+          </div>
+          <div class="metric-value">267bp</div>
+          <div class="changes">
+            <span>전 관측 -4bp</span>
+            <span>5D -3bp</span>
+            <span>20D -6bp</span>
+          </div>
+          <div class="meaning"><b>의미</b> 하이일드 회사채의 신용위험 프리미엄입니다. 급격한 확대는 금융환경 악화와 신용 스트레스를 의미합니다.</div>
+          <div class="interpret"><b>현재 해석</b> HY 신용스프레드는 현재 경고선 아래입니다.</div>
+        </div>
+        </div>
+
+  <h2>상태 읽는 법</h2>
+  <div class="legend">
+    <div class="legend-item"><b>안정</b> — 핵심 경고 조건 없음</div>
+    <div class="legend-item"><b>관찰</b> — 임계치 접근 또는 완만한 악화</div>
+    <div class="legend-item"><b>주의</b> — 명확한 초기 경고 신호</div>
+    <div class="legend-item"><b>경계</b> — 강한 트리거 또는 핵심 임계치 진입</div>
+  </div>
 
   <h2>역사적 위험 패턴</h2>
   <div class="riskgrid">
-    <div class="card">
-      <div class="muted">1987형 · Long-end / credibility stress</div>
+    <div class="panel">
+      <div class="panel-title">1987형 · Long-end / credibility stress</div>
       <div class="score">0/100</div>
       <ul><li>핵심 트리거 없음</li></ul>
     </div>
-    <div class="card">
-      <div class="muted">1999형 · Front-end / tightening stress</div>
+    <div class="panel">
+      <div class="panel-title">1999형 · Front-end / tightening stress</div>
       <div class="score">0/100</div>
       <ul><li>핵심 트리거 없음</li></ul>
     </div>
@@ -111,32 +275,18 @@
 
   <h2>Yield Curve</h2>
   <table>
-    <tr><th>Curve</th><th>현재</th><th>5D 변화</th><th>20D 변화</th></tr>
-    <tr><td>2s10s</td><td>+51bp</td><td>+5bp</td><td>+14bp</td></tr>
-    <tr><td>3m10y</td><td>+82bp</td><td>+4bp</td><td>+12bp</td></tr>
-    <tr><td>2s30s</td><td>+108bp</td><td>+8bp</td><td>+20bp</td></tr>
+    <tr><th>Curve</th><th>현재</th><th>전 관측</th><th>5D</th><th>20D</th></tr>
+    <tr><td>2s10s</td><td>+51bp</td><td>+3bp</td><td>+5bp</td><td>+14bp</td></tr>
+    <tr><td>3m10y</td><td>+82bp</td><td>+6bp</td><td>+4bp</td><td>+12bp</td></tr>
+    <tr><td>2s30s</td><td>+108bp</td><td>+2bp</td><td>+8bp</td><td>+20bp</td></tr>
   </table>
 
-  <h2>v2에서 추가할 데이터</h2>
   <div class="note">
-    NY Fed ACM term premium · MOVE · CME FedWatch · Treasury auction/foreign demand ·
-    AI/데이터센터 신용 · hyperscaler Capex. 신뢰 가능한 소스가 없으면 추정하지 않고 N/A로 유지합니다.
+    상태 표시는 규칙 기반 위험 신호이며 시장 방향을 예언하는 지표가 아닙니다.
+    Term premium은 현재 FRED의 THREEFYTP10(Federal Reserve Board Kim-Wright model)을 사용하며,
+    데이터 날짜가 늦으면 카드에 지연 표시가 나타납니다. NY Fed ACM 직접 연동은 다음 단계에서 교체할 수 있습니다.
   </div>
 
-  <h2>데이터 출처</h2>
-  <div class="card">
-    <div>FRED series:
-      <a href="https://fred.stlouisfed.org/series/DGS2">DGS2</a>,
-      <a href="https://fred.stlouisfed.org/series/DGS10">DGS10</a>,
-      <a href="https://fred.stlouisfed.org/series/DGS30">DGS30</a>,
-      <a href="https://fred.stlouisfed.org/series/DFII10">DFII10</a>,
-      <a href="https://fred.stlouisfed.org/series/BAMLC0A0CM">IG OAS</a>,
-      <a href="https://fred.stlouisfed.org/series/BAMLH0A0HYM2">HY OAS</a>.
-    </div>
-    <div class="muted" style="margin-top:8px">
-      이 대시보드는 투자 판단 보조용 규칙 기반 도구이며 투자 권유가 아닙니다.
-    </div>
-  </div>
 </div>
 </body>
 </html>
