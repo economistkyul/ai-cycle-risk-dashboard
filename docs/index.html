@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Cycle Risk Dashboard</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f6f7f9; color: #111827;
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 18px; }
+  .hero {
+    background: #111827; color: white; border-radius: 18px; padding: 22px;
+    margin-bottom: 16px;
+  }
+  .badge {
+    display:inline-block; padding:6px 12px; border-radius:999px;
+    background:#16a34a; color:white; font-weight:700;
+  }
+  .muted { color:#6b7280; font-size:13px; }
+  .hero .muted { color:#cbd5e1; }
+  h1 { font-size:24px; margin:8px 0 6px; }
+  h2 { font-size:18px; margin:22px 0 10px; }
+  .grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+  }
+  .card {
+    background:white; border:1px solid #e5e7eb; border-radius:14px; padding:15px;
+  }
+  .value { font-size:25px; font-weight:750; margin:7px 0 4px; }
+  .sub { font-size:13px; color:#4b5563; }
+  .riskgrid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .score { font-size:34px; font-weight:800; }
+  ul { margin:8px 0 0 18px; padding:0; }
+  li { margin:5px 0; }
+  .note {
+    background:#fff; border-left:4px solid #9ca3af; padding:12px 14px;
+    margin-top:10px; font-size:13px; color:#4b5563;
+  }
+  table {
+    width:100%; border-collapse:collapse; background:white; border-radius:14px; overflow:hidden;
+  }
+  th,td { text-align:left; border-bottom:1px solid #e5e7eb; padding:10px; font-size:13px; }
+  th { background:#f9fafb; }
+  a { color:#2563eb; }
+  @media (max-width:720px) {
+    .grid { grid-template-columns:1fr 1fr; }
+    .riskgrid { grid-template-columns:1fr; }
+  }
+  @media (max-width:430px) {
+    .grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <span class="badge">공격</span>
+    <h1>AI Cycle Risk Dashboard</h1>
+    <div>상승 추세 추종 · 현재는 <b>혼합/중립</b> 위험축이 상대적으로 더 강함</div>
+    <div class="muted" style="margin-top:8px">FRED 최신 관측 기준일: 2026-08-14</div>
+  </section>
+
+  <div class="grid">
+        <div class="card">
+          <div class="muted">2Y Treasury</div>
+          <div class="value">4.17%</div>
+          <div class="sub">5D -2bp · 20D -1bp</div>
+        </div>
+        <div class="card">
+          <div class="muted">2s10s</div>
+          <div class="value">+51bp</div>
+          <div class="sub">5D +5bp · 20D +14bp</div>
+        </div>
+        <div class="card">
+          <div class="muted">30Y Treasury</div>
+          <div class="value">5.25%</div>
+          <div class="sub">20D +19bp</div>
+        </div>
+        <div class="card">
+          <div class="muted">10Y Real Yield</div>
+          <div class="value">2.41%</div>
+          <div class="sub">20D +10bp</div>
+        </div>
+        <div class="card">
+          <div class="muted">IG OAS</div>
+          <div class="value">80bp</div>
+          <div class="sub">20D +1bp</div>
+        </div>
+        <div class="card">
+          <div class="muted">HY OAS</div>
+          <div class="value">267bp</div>
+          <div class="sub">20D -6bp</div>
+        </div></div>
+
+  <h2>역사적 위험 패턴</h2>
+  <div class="riskgrid">
+    <div class="card">
+      <div class="muted">1987형 · Long-end / credibility stress</div>
+      <div class="score">0/100</div>
+      <ul><li>핵심 트리거 없음</li></ul>
+    </div>
+    <div class="card">
+      <div class="muted">1999형 · Front-end / tightening stress</div>
+      <div class="score">0/100</div>
+      <ul><li>핵심 트리거 없음</li></ul>
+    </div>
+  </div>
+
+  <h2>Yield Curve</h2>
+  <table>
+    <tr><th>Curve</th><th>현재</th><th>5D 변화</th><th>20D 변화</th></tr>
+    <tr><td>2s10s</td><td>+51bp</td><td>+5bp</td><td>+14bp</td></tr>
+    <tr><td>3m10y</td><td>+82bp</td><td>+4bp</td><td>+12bp</td></tr>
+    <tr><td>2s30s</td><td>+108bp</td><td>+8bp</td><td>+20bp</td></tr>
+  </table>
+
+  <h2>v2에서 추가할 데이터</h2>
+  <div class="note">
+    NY Fed ACM term premium · MOVE · CME FedWatch · Treasury auction/foreign demand ·
+    AI/데이터센터 신용 · hyperscaler Capex. 신뢰 가능한 소스가 없으면 추정하지 않고 N/A로 유지합니다.
+  </div>
+
+  <h2>데이터 출처</h2>
+  <div class="card">
+    <div>FRED series:
+      <a href="https://fred.stlouisfed.org/series/DGS2">DGS2</a>,
+      <a href="https://fred.stlouisfed.org/series/DGS10">DGS10</a>,
+      <a href="https://fred.stlouisfed.org/series/DGS30">DGS30</a>,
+      <a href="https://fred.stlouisfed.org/series/DFII10">DFII10</a>,
+      <a href="https://fred.stlouisfed.org/series/BAMLC0A0CM">IG OAS</a>,
+      <a href="https://fred.stlouisfed.org/series/BAMLH0A0HYM2">HY OAS</a>.
+    </div>
+    <div class="muted" style="margin-top:8px">
+      이 대시보드는 투자 판단 보조용 규칙 기반 도구이며 투자 권유가 아닙니다.
+    </div>
+  </div>
+</div>
+</body>
+</html>
