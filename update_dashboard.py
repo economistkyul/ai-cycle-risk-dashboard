@@ -231,15 +231,24 @@ def classify_regime(d, r1987, r1999):
 
 
 def build_payload(raw):
-    latest_values = {
-        k: {
+    # Treasury / policy / inflation series are reported in percent.
+    # ICE BofA OAS series on FRED are also reported in percent, while
+    # our dashboard thresholds are expressed in basis points.
+    # Therefore convert only the latest IG/HY OAS values from % to bp.
+    latest_values = {}
+
+    for k, rows in raw.items():
+        value = latest(rows)["value"]
+
+        if k in ("ig_oas", "hy_oas"):
+            value *= 100.0
+
+        latest_values[k] = {
             "series_id": SERIES[k],
             "label": LABELS[k],
             "date": latest(rows)["date"],
-            "value": latest(rows)["value"],
+            "value": value,
         }
-        for k, rows in raw.items()
-    }
 
     changes = {}
     for k, rows in raw.items():
