@@ -1,67 +1,67 @@
 {
-  "generated_at_utc": "2026-08-29T04:16:27.532373+00:00",
-  "reference_date": "2026-08-28",
+  "generated_at_utc": "2026-08-30T01:29:12.273621+00:00",
+  "reference_date": "2026-08-29",
   "latest": {
     "3m": {
       "series_id": "DGS3MO",
       "label": "3M Treasury",
       "date": "2026-08-27",
       "value": 3.84,
-      "age_days_vs_latest": 1
+      "age_days_vs_latest": 2
     },
     "2y": {
       "series_id": "DGS2",
       "label": "2Y Treasury",
       "date": "2026-08-27",
       "value": 4.2,
-      "age_days_vs_latest": 1
+      "age_days_vs_latest": 2
     },
     "10y": {
       "series_id": "DGS10",
       "label": "10Y Treasury",
       "date": "2026-08-27",
       "value": 4.67,
-      "age_days_vs_latest": 1
+      "age_days_vs_latest": 2
     },
     "30y": {
       "series_id": "DGS30",
       "label": "30Y Treasury",
       "date": "2026-08-27",
       "value": 5.19,
-      "age_days_vs_latest": 1
+      "age_days_vs_latest": 2
     },
     "real10y": {
       "series_id": "DFII10",
       "label": "10Y TIPS real yield",
       "date": "2026-08-27",
       "value": 2.34,
-      "age_days_vs_latest": 1
+      "age_days_vs_latest": 2
     },
     "breakeven10y": {
       "series_id": "T10YIE",
       "label": "10Y breakeven inflation",
       "date": "2026-08-28",
       "value": 2.31,
-      "age_days_vs_latest": 0
+      "age_days_vs_latest": 1
     },
     "term_premium": {
       "series_id": "THREEFYTP10",
       "label": "10Y Term Premium",
       "date": "2026-08-21",
       "value": 0.8682,
-      "age_days_vs_latest": 7
+      "age_days_vs_latest": 8
     },
     "fed_upper": {
       "series_id": "DFEDTARU",
       "label": "Fed target upper",
-      "date": "2026-08-28",
+      "date": "2026-08-29",
       "value": 3.75,
       "age_days_vs_latest": 0
     },
     "fed_lower": {
       "series_id": "DFEDTARL",
       "label": "Fed target lower",
-      "date": "2026-08-28",
+      "date": "2026-08-29",
       "value": 3.5,
       "age_days_vs_latest": 0
     },
@@ -70,14 +70,14 @@
       "label": "US IG OAS",
       "date": "2026-08-27",
       "value": 79.0,
-      "age_days_vs_latest": 1
+      "age_days_vs_latest": 2
     },
     "hy_oas": {
       "series_id": "BAMLH0A0HYM2",
       "label": "US HY OAS",
       "date": "2026-08-27",
       "value": 263.0,
-      "age_days_vs_latest": 1
+      "age_days_vs_latest": 2
     }
   },
   "changes": {
