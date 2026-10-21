@@ -1,127 +1,127 @@
 {
-  "generated_at_utc": "2026-10-20T01:59:50.144579+00:00",
-  "reference_date": "2026-10-19",
+  "generated_at_utc": "2026-10-21T01:51:20.061926+00:00",
+  "reference_date": "2026-10-20",
   "latest": {
     "3m": {
       "series_id": "DGS3MO",
       "label": "3M Treasury",
-      "date": "2026-10-16",
-      "value": 4.26,
-      "age_days_vs_latest": 3
+      "date": "2026-10-19",
+      "value": 4.27,
+      "age_days_vs_latest": 1
     },
     "2y": {
       "series_id": "DGS2",
       "label": "2Y Treasury",
-      "date": "2026-10-16",
-      "value": 4.74,
-      "age_days_vs_latest": 3
+      "date": "2026-10-19",
+      "value": 4.77,
+      "age_days_vs_latest": 1
     },
     "10y": {
       "series_id": "DGS10",
       "label": "10Y Treasury",
-      "date": "2026-10-16",
-      "value": 5.09,
-      "age_days_vs_latest": 3
+      "date": "2026-10-19",
+      "value": 5.15,
+      "age_days_vs_latest": 1
     },
     "30y": {
       "series_id": "DGS30",
       "label": "30Y Treasury",
-      "date": "2026-10-16",
-      "value": 5.43,
-      "age_days_vs_latest": 3
+      "date": "2026-10-19",
+      "value": 5.48,
+      "age_days_vs_latest": 1
     },
     "real10y": {
       "series_id": "DFII10",
       "label": "10Y TIPS real yield",
-      "date": "2026-10-16",
-      "value": 2.74,
-      "age_days_vs_latest": 3
+      "date": "2026-10-19",
+      "value": 2.8,
+      "age_days_vs_latest": 1
     },
     "breakeven10y": {
       "series_id": "T10YIE",
       "label": "10Y breakeven inflation",
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "value": 2.35,
       "age_days_vs_latest": 0
     },
     "term_premium": {
       "series_id": "THREEFYTP10",
       "label": "10Y Term Premium",
-      "date": "2026-10-09",
-      "value": 1.0729,
-      "age_days_vs_latest": 10
+      "date": "2026-10-16",
+      "value": 0.9857,
+      "age_days_vs_latest": 4
     },
     "fed_upper": {
       "series_id": "DFEDTARU",
       "label": "Fed target upper",
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "value": 4.0,
       "age_days_vs_latest": 0
     },
     "fed_lower": {
       "series_id": "DFEDTARL",
       "label": "Fed target lower",
-      "date": "2026-10-19",
+      "date": "2026-10-20",
       "value": 3.75,
       "age_days_vs_latest": 0
     },
     "ig_oas": {
       "series_id": "BAMLC0A0CM",
       "label": "US IG OAS",
-      "date": "2026-10-16",
-      "value": 85.0,
-      "age_days_vs_latest": 3
+      "date": "2026-10-19",
+      "value": 87.0,
+      "age_days_vs_latest": 1
     },
     "hy_oas": {
       "series_id": "BAMLH0A0HYM2",
       "label": "US HY OAS",
-      "date": "2026-10-16",
-      "value": 331.0,
-      "age_days_vs_latest": 3
+      "date": "2026-10-19",
+      "value": 329.0,
+      "age_days_vs_latest": 1
     }
   },
   "changes": {
     "3m": {
-      "1d_bp": -2.0,
-      "5d_bp": 3.0,
-      "10d_bp": 9.0,
-      "20d_bp": 14.0
+      "1d_bp": 1.0,
+      "5d_bp": 2.0,
+      "10d_bp": 8.0,
+      "20d_bp": 13.0
     },
     "2y": {
-      "1d_bp": -3.0,
-      "5d_bp": -1.0,
-      "10d_bp": -4.0,
-      "20d_bp": 7.0
+      "1d_bp": 3.0,
+      "5d_bp": -3.0,
+      "10d_bp": -6.0,
+      "20d_bp": 1.0
     },
     "10y": {
-      "1d_bp": -1.0,
-      "5d_bp": -13.0,
-      "10d_bp": -15.0,
-      "20d_bp": 15.0
+      "1d_bp": 6.0,
+      "5d_bp": -9.0,
+      "10d_bp": -13.0,
+      "20d_bp": 14.0
     },
     "30y": {
-      "1d_bp": 0.0,
-      "5d_bp": -17.0,
-      "10d_bp": -18.0,
+      "1d_bp": 5.0,
+      "5d_bp": -12.0,
+      "10d_bp": -15.0,
       "20d_bp": 14.0
     },
     "real10y": {
-      "1d_bp": -4.0,
-      "5d_bp": -13.0,
-      "10d_bp": -14.0,
-      "20d_bp": 13.0
+      "1d_bp": 6.0,
+      "5d_bp": -11.0,
+      "10d_bp": -12.0,
+      "20d_bp": 12.0
     },
     "breakeven10y": {
       "1d_bp": 0.0,
       "5d_bp": 2.0,
       "10d_bp": -1.0,
-      "20d_bp": 2.0
+      "20d_bp": 1.0
     },
     "term_premium": {
-      "1d_bp": 0.4,
-      "5d_bp": -1.2,
-      "10d_bp": 5.2,
-      "20d_bp": 11.2
+      "1d_bp": -1.8,
+      "5d_bp": -8.4,
+      "10d_bp": -7.9,
+      "20d_bp": 4.6
     },
     "fed_upper": {
       "1d_bp": 0.0,
@@ -136,42 +136,42 @@
       "20d_bp": 0.0
     },
     "ig_oas": {
-      "1d_bp": 1.0,
-      "5d_bp": 2.0,
-      "10d_bp": 0.0,
-      "20d_bp": 8.0
+      "1d_bp": 2.0,
+      "5d_bp": 4.0,
+      "10d_bp": 3.0,
+      "20d_bp": 10.0
     },
     "hy_oas": {
-      "1d_bp": 8.0,
-      "5d_bp": 20.0,
-      "10d_bp": 21.0,
+      "1d_bp": -2.0,
+      "5d_bp": 18.0,
+      "10d_bp": 17.0,
       "20d_bp": 63.0
     }
   },
   "curves": {
     "2s10s": {
-      "date": "2026-10-16",
-      "value_bp": 35.0,
-      "1d_change_bp": 2.0,
-      "5d_change_bp": -12.0,
-      "10d_change_bp": -11.0,
-      "20d_change_bp": 8.0
+      "date": "2026-10-19",
+      "value_bp": 38.0,
+      "1d_change_bp": 3.0,
+      "5d_change_bp": -6.0,
+      "10d_change_bp": -7.0,
+      "20d_change_bp": 13.0
     },
     "3m10y": {
-      "date": "2026-10-16",
-      "value_bp": 83.0,
-      "1d_change_bp": 1.0,
-      "5d_change_bp": -16.0,
-      "10d_change_bp": -24.0,
+      "date": "2026-10-19",
+      "value_bp": 88.0,
+      "1d_change_bp": 5.0,
+      "5d_change_bp": -11.0,
+      "10d_change_bp": -21.0,
       "20d_change_bp": 1.0
     },
     "2s30s": {
-      "date": "2026-10-16",
-      "value_bp": 69.0,
-      "1d_change_bp": 3.0,
-      "5d_change_bp": -16.0,
-      "10d_change_bp": -14.0,
-      "20d_change_bp": 7.0
+      "date": "2026-10-19",
+      "value_bp": 71.0,
+      "1d_change_bp": 2.0,
+      "5d_change_bp": -9.0,
+      "10d_change_bp": -9.0,
+      "20d_change_bp": 13.0
     }
   },
   "data_notes": {
@@ -191,8 +191,8 @@
       "interpretation": "현재 역전은 아니며 최근 흐름은 큰 변화 없음입니다."
     },
     "10y": {
-      "status": "안정",
-      "interpretation": "10년물은 핵심 경계선 아래이며 상승속도도 아직 극단적이지 않습니다."
+      "status": "주의",
+      "interpretation": "10년물이 높은 구간에 있어 추가 상승 시 밸류에이션 압력이 커질 수 있습니다."
     },
     "30y": {
       "status": "관찰",
@@ -203,12 +203,12 @@
       "interpretation": "실질금리가 완만하게 상승하고 있습니다."
     },
     "term_premium": {
-      "status": "관찰",
-      "interpretation": "term premium이 완만하게 상승 중입니다."
+      "status": "안정",
+      "interpretation": "term premium 급등 신호는 아직 없습니다."
     },
     "ig_oas": {
-      "status": "안정",
-      "interpretation": "IG 신용스프레드는 현재 경고선 아래입니다."
+      "status": "관찰",
+      "interpretation": "신용스프레드가 경고선에 접근하거나 확대되고 있습니다."
     },
     "hy_oas": {
       "status": "관찰",
@@ -217,25 +217,30 @@
   },
   "risk": {
     "risk_1999": 0,
-    "risk_1987": 15,
+    "risk_1987": 30,
     "reasons_1999": [],
     "reasons_1987": [
+      "10Y 5.10% 이상",
       "IG/HY OAS 동시 확대"
     ],
     "regime": "공격",
     "action": "상승 추세 추종",
-    "overall_status": "관찰",
+    "overall_status": "주의",
     "closer_to": "1987형"
   },
   "daily_change": {
-    "label": "유사",
-    "arrow": "→",
-    "text": "전 관측 대비 큰 방향 변화는 없습니다.",
-    "drivers": []
+    "label": "악화",
+    "arrow": "↑",
+    "text": "전 관측 대비 위험요인이 늘었습니다.",
+    "drivers": [
+      "10Y 상승",
+      "30Y 상승",
+      "실질금리 상승"
+    ]
   },
   "summary": [
-    "커브: 2s10s +35bp, 5D -12bp → 평탄화 속도를 점검합니다.",
-    "롱엔드: 30Y 5.43%, 20D +14bp → 5.75% 절대 경계선 아래지만 장기금리 상승속도를 계속 봅니다.",
-    "신용: IG 85bp / HY 331bp → 현재는 IG 100bp / HY 350bp 경고선 아래입니다."
+    "커브: 2s10s +38bp, 5D -6bp → 평탄화 속도를 점검합니다.",
+    "롱엔드: 30Y 5.48%, 20D +14bp → 5.75% 절대 경계선 아래지만 장기금리 상승속도를 계속 봅니다.",
+    "신용: IG 87bp / HY 329bp → 현재는 IG 100bp / HY 350bp 경고선 아래입니다."
   ]
 }
